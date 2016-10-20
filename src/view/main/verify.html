@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/main.css">
+	<title>开启登录保护</title>
+</head>
+<body>
+	<div class="content">
+		<div class="verify">
+			<span>请输入安全码</span>
+			<p><input type="text" id="numsure" placeholder="请输入6位数字安全码"></p>
+			<p><input type="button" value="确认开启" id="opensure"></p>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="{{ _base_url }}/static/js/jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#opensure").on("click",function(){
+				$.ajax({
+					url:"{{ url }}",
+					type:"post",
+					data:"tfacode="+$("#numsure").val(),
+					dataType:"json",
+					success:function(data){
+					 if (data.status==1) {
+							window.location.href="verifysuccess";
+						}else {
+							alert("verify error");return;
+						}
+					}
+				})
+			})
+		})
+	</script>
+</html>

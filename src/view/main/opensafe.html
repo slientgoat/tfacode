@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/main.css">
+	<title>开启登录保护</title>
+</head>
+<body>
+	<div class="content">
+		<div class="opensafe">
+			<span class="back"><开启登录保护</span>
+			<p class="step"><span>Step1</span>打开<i>登录保</i>或其他支持2FA的常用应用程序扫描下图二维码</p>
+			<img src="authQrcode">
+			<p class="step"><span>Step2</span>请输入您从登录保或2FA应用程序中获取的安全码</p>
+			<p><input type="text" id="mynum"></p>
+			<p><input type="button" value="确认开启" id="opening"></p>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="{{ _base_url }}/static/js/jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#opening").on("click",function(){
+				$.ajax({
+					url:"{{ url }}",
+					type:"post",
+					data:"tfacode="+$("#mynum").val(),
+					dataType:"json",
+					success:function(data){
+					 if (data.status==1) {
+							window.location.href="verifysuccess";
+						}else {
+							alert("verify error");return;
+						}
+					}
+				})
+			})
+		})
+	</script>
+</html>

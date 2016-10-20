@@ -1,4 +1,4 @@
--module(users, [Id,Username,Password,Secret,Appid,Appname]).
+-module(users, [Id,Username,Password,Secret,Appid,Appname,Isbanded,Session]).
 -compile(export_all).
 
 -define(SETEC_ASTRONOMY, "Too many secrets").
@@ -19,3 +19,7 @@ set_login_cookies() ->
 
 check_code(TfaCode)->
   tfacode:check_code(Secret,binary_to_integer(TfaCode)).
+
+
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/main.css">
+	<title>登录成功</title>
+</head>
+<body>
+	<div class="content">
+		<div class="success">
+			<h1>登录成功</h1>
+			<p><input type="button" value="关闭登录保护" id="closeverify"></p>
+			<p><input type="button" value="退出登录" id="btnclose"></p>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="{{ _base_url }}/static/js/jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#closeverify").on("click",function(){
+				$.ajax({
+					url:"{{ url_closeverify }}",
+					type:"post",
+					success:function(data){
+						console.log(data)
+						if(data.status==1 ){
+								alert("closeverify sucess");
+						}else{
+							alert("error");return;
+						}
+					}
+				})
+			})
+			$("#btnclose").on("click",function(){
+				$.ajax({
+					url:"{{ url_exit }}",
+					type:"post",
+					success:function(data){
+						console.log(data)
+						if(data.status==1 ){
+								window.location.href="login";
+						}else{
+							alert("error");return;
+						}
+					}
+				})
+			})
+		})
+	</script>
+</html>

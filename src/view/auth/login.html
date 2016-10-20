@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="{{ _base_url }}/static/css/main.css">
+	<title>帐号登录</title>
+</head>
+<body>
+	<div class="content">
+		<div class="login">
+			<h1>登录保WEB登录测试</h1>
+			<p><input type="text" placeholder="请输入帐号" id="younum"></p>
+			<p><input type="password" placeholder="请输入密码" id="youword"></p>
+			<p><input type="button" value="登录" id="btn"></p>
+		</div>
+	</div>
+</body>
+	<script type="text/javascript" src="{{ _base_url }}/static/js/jquery-1.11.0.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#btn").on("click",function(){
+
+				$.ajax({
+					url:"{{ url }}",
+					type:"post",
+					data:"username="+$("#younum").val()+"&password="+$("#youword").val(),
+					dataType:"json",
+					success:function(data){
+						console.log(data)
+						if(data.status==1 ){
+						    if (data.isbanded==1) {
+								window.location.href="../main/verify";
+							}else {
+								window.location.href="../main/loginsuccess";
+							}
+						}else{
+							alert("error");return;
+						}
+					}
+				})
+			})
+		})
+	</script>
+</html>

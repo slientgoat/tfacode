@@ -1,0 +1,30 @@
+.content{width: 600px;height: 450px;background: #eee;border: 1px solid #000;text-align: center;margin: 100px auto;}
+.login h1{margin-top: 50px;color: #666;margin-bottom: 70px}
+.login p{margin-bottom: 10px}
+.login input{width: 200px; height: 30px;background: #fff;padding: 0 5px;}
+.login input[type="button"]{width: 210px; height: 30px;background: #169BD5; color: #fff;border-radius: 5px;cursor: pointer}
+
+/*登录成功*/
+.success h1{font-size: 40px;color: #666;margin-top: 100px;margin-bottom: 50px;}
+.success input{width: 200px; height: 40px;border-radius:5px;margin-bottom: 10px;color: #fff;cursor: pointer}
+#btnopen{background:#169BD5; }
+#btnclose{background: #999999}
+
+/*开启保护*/
+.opensafe .back{display:block;padding: 25px;font: bold 24px "宋体";text-align: left;color: #999999}
+.opensafe p span{font: bold 24px "宋体"; color: #666;margin-right: 10px;margin-left: 60px;}
+.opensafe .step{text-align: left;}
+.opensafe p i{color: green}
+.opensafe img{margin: 15px 0;display: inline-block;}
+.opensafe input{width: 200px; height: 30px;}
+#mynum{background: #fff;text-align: center;font-size: 26px;margin: 15px 0 5px 0;}
+#opening{width:200px;height: 30px;border-radius: 5px;color: #fff;background: #6699FF;cursor: pointer}
+
+/*二次验证*/
+.verify span{display:inline-block; width: 200px;height: 30px;color: red;font-size: 13px;margin-top: 160px;text-align: left;line-height: 30px;}
+.verify input{width: 200px; height: 30px;line-height: 28px;}
+#numsure{background: #fff;text-align: center;margin: 15px 0 5px 0;}
+#opensure{color: #fff;background: #6699FF;cursor: pointer ;border-radius: 5px;}
+.verify p{margin-bottom: 10px}
+
+#closeverify{background:red;}
